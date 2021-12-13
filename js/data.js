@@ -120,22 +120,21 @@ const card = [
 	}
 ];
 
-function printCards(card, containerCards) {
-	for (let index = 0; index < card.length; index++) {
-		const object = card[index];
-
+function printCards(object) {
 		const layoutCard = 
 	 `<ul class="flex ul">
       <li class="card flex ${object.type}">
           <i class="${object.family} ${object.prefix}${object.name} animals" style ="color:${object.color}"></i><span>${object.name}</span>
       </li>
     </ul>`;
-		containerCards.innerHTML += layoutCard;
-	}
+		return layoutCard;
 }
 
 let containerCards = document.querySelector('.cards-container');
-printCards(card, containerCards);
+
+for (let index = 0; index < card.length; index++) {
+	containerCards.innerHTML+=printCards(card[index]);
+}
 
 let opzioni = document.getElementById('opzioni');
 
@@ -155,3 +154,28 @@ let users = card.filter((object) => {
 	return object.type == "user";
 });
 
+//quando clicco sulla select per cambiare opzione
+opzioni.addEventListener('change', function () {
+	if (opzioni.value == 'all') {
+		containerCards.innerHTML = '';
+		card.forEach((object) => {
+			containerCards.innerHTML += printCards(object, containerCards);
+		});
+	} else if (opzioni.value == 'animal') {
+		containerCards.innerHTML = '';
+		animals.forEach((object) => {
+			containerCards.innerHTML += printCards(object, containerCards);
+		});
+	} else if (opzioni.value == 'vegetable') {
+		containerCards.innerHTML = '';
+		vegetables.forEach((object) => {
+			containerCards.innerHTML += printCards(object, containerCards);
+		});
+	} else if (opzioni.value == 'user') {
+		containerCards.innerHTML = '';
+
+		users.forEach((object) => {
+			containerCards.innerHTML += printCards(object, containerCards);
+		}); 
+	}
+});
