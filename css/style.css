@@ -35,6 +35,10 @@ main .ul {
   list-style: none;  
 }
 
+.cards-container {
+  flex-wrap: wrap;
+}
+
 main .ul .card {
   width: 250px;
   height: 130px;
