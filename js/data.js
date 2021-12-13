@@ -120,23 +120,38 @@ const card = [
 	}
 ];
 
-function printCards(arrayList, container) {
-	container.innerHTML = '';
-	for (let index = 0; index < arrayList.length; index++) {
-		const object = arrayList[index];
+function printCards(card, containerCards) {
+	for (let index = 0; index < card.length; index++) {
+		const object = card[index];
 
-		const layoutDiv = 
+		const layoutCard = 
 	 `<ul class="flex ul">
-      <li class="card flex">
+      <li class="card flex ${object.type}">
           <i class="${object.family} ${object.prefix}${object.name} animals" style ="color:${object.color}"></i><span>${object.name}</span>
       </li>
     </ul>`;
-		console.log(layoutDiv);
-		container.innerHTML += layoutDiv;
+		containerCards.innerHTML += layoutCard;
 	}
 }
 
-const container = document.querySelector('.cards-container');
-printCards(card, container);
+let containerCards = document.querySelector('.cards-container');
+printCards(card, containerCards);
 
-console.log(card);
+let opzioni = document.getElementById('opzioni');
+
+//controllo gli animali
+let animals = card.filter((object) => {
+	return object.type == "animal";
+});
+
+//controllo le verdure
+let vegetables = card.filter((object) => {
+	return object.type == "vegetable";
+});
+
+
+//controllo gli utenti
+let users = card.filter((object) => {
+	return object.type == "user";
+});
+
