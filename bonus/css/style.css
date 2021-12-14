@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #DDDDDD;
+}
+
+.header-top {
+  background-color: white;
+}
+
+.header-top h1 {
+  color: #29B1DD;
+  padding: 10px;
+}
+
+.header-bottom span {
+  text-transform: uppercase;
+  color: white;
+  line-height: 60px;
+  font-size: 1.5em;
+}
+
+.header-bottom {
+  text-align: center;
+  background-color: #29B1DD;
+  height: 60px;
+}
+
+main .ul {
+  text-decoration: none;
+  list-style: none;  
+}
+
+.cards-container {
+  flex-wrap: wrap;
+}
+
+main .ul .card {
+  width: 250px;
+  height: 130px;
+  background-color: white;
+  border-radius: 10px;
+  margin: 20px 10px 10px 20px;
+}
+
+.flex {
+  display: flex;
+}
+
+.card {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main .ul .card .animals {
+  font-size: 3em;
+  margin-bottom: 5px;
+}
+
+main .ul .card span {
+  text-transform: uppercase;
+}
+
